@@ -1,10 +1,25 @@
+<ng-container *ngIf="weather">
+  <input-city [defValue]="defValue" (emitter)="doRequest($event)"></input-city>
 
-<input-city></input-city>
-<div class="min-w-[200px] w-full rounded-mdmin-h-[500px] mt-5 shadow pb-2 rounded-[10px] ">
-  <top-banner> </top-banner>
+  <p *ngIf="error" class="text-center text-rose-500 mt-2 mx-auto">
+    {{ error.message }}
+  </p>
 
-  <div class="px-2 py-5">
+  <div
+    class="min-w-[200px] w-full rounded-mdmin-h-[500px] mt-5 shadow pb-2 rounded-[10px]"
+  >
+    <top-banner
+      [name]="weather.location.name"
+      [degree]="weather.current.feelslike_c"
+    >
+    </top-banner>
 
-    <panel-bottom></panel-bottom>
+    <div class="px-2 py-5">
+      <panel-bottom [current]="weather.current"></panel-bottom>
+    </div>
   </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="!weather">
+  <h1 class="text-white">Errors with Api.</h1>
+</ng-container>

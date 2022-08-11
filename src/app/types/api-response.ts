@@ -1,4 +1,4 @@
-export interface RootObject {
+export interface IAPIResponse {
   current: Current;
   location: Location;
 }
@@ -44,4 +44,15 @@ export interface Location {
   name: string;
   region: string;
   tz_id: string;
+}
+
+// Error
+export interface IError {
+  code: number;
+  message: string;
+}
+
+export interface IResponse {
+  weather: null | IAPIResponse;
+  error: null | IError;
 }

@@ -1,18 +1,13 @@
-<div class="bg-blue-200 w-full h-full grid grid-cols-2 gap-y-[100px] justify-items-center p-5 rounded-lg">
-  <div class="flex gap-4 w-max">
-    <img src="../../../assets//cold.png" alt="" class="w-[35px] h-[35px]" />
-    <span class="self-center text-white/80 font-medium text-base">17°C</span>
-  </div>
-  <div class="flex gap-4 w-max">
-    <img src="../../../assets//cold.png" alt="" class="w-[35px] h-[35px]" />
-    <span class="self-center text-white/80 font-medium text-base">17°C</span>
-  </div>
-  <div class="flex gap-4 w-max">
-    <img src="../../../assets//cold.png" alt="" class="w-[35px] h-[35px]" />
-    <span class="self-center text-white/80 font-medium text-base">17°C</span>
-  </div>
-  <div class="flex gap-4 w-max">
-    <img src="../../../assets//cold.png" alt="" class="w-[35px] h-[35px]" />
-    <span class="self-center text-white/80 font-medium text-base">17°C</span>
+<div
+  class="bg-blue-200 w-full h-full grid grid-cols-2 gap-y-[100px] justify-items-center p-5 rounded-lg"
+>
+  <div
+    class="flex gap-4 w-max"
+    *ngFor="let item of getContent(); trackBy: trackById"
+  >
+    <img [src]="item.img" alt="" class="w-[35px] h-[35px]" />
+    <span class="self-center text-white/80 font-medium text-base">{{
+      item.value
+    }}</span>
   </div>
 </div>
